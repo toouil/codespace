@@ -1,0 +1,160 @@
+.profile_page {
+    padding-bottom: 15px;
+}
+
+.profile_header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.profile_header .profile_picture {
+    width: calc(5vw + 100px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: grid;
+    place-content: center;
+}
+
+.profile_header .profile_picture  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.profile_header .profile_info .profile_username h2 {
+    color: var(--primary-text);
+    font-size: calc(20px + .5vw);
+}
+
+.profile_header .profile_info .memeber_time {
+    margin: 0 0 8px 0;
+    justify-content: flex-start !important;
+    gap: 10px;
+}
+
+.profile_header .profile_info .memeber_time svg{
+    margin-top: 3px;
+    fill: var(--secondary-text);
+    width: 20px;
+    height: 20px;
+}
+
+.profile_header .profile_info .memeber_time p {
+    color: var(--secondary-text);
+}
+
+.profile_header .profile_info .social_info {
+    display: flex;
+    align-self: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.profile_header .profile_info .social_info .user_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.profile_header .profile_info .social_info .user_links a {
+    text-decoration: none;
+    height: 20px;
+}
+
+.profile_header .profile_info .social_info .user_links a svg {
+    fill: var(--secondary-text);
+}
+
+.profile_header .profile_info .social_info .user_links a * {
+    pointer-events: none;
+}
+
+.profile_header .profile_info .social_info .user_links a.w {
+    gap: 3px;
+    color: var(--secondary-text);
+}
+
+.profile_header .profile_info .social_info .divider_y {
+    height: 30px;
+}
+
+.profile_header .profile_info .social_info .user_country {
+    gap: 5px;
+}
+
+.profile_header .profile_info .social_info .user_country svg {
+    margin-top: 3px;
+    fill: var(--secondary-text);
+}
+.profile_header .profile_info .social_info .user_country p {
+    color: var(--secondary-text);
+}
+
+@media (max-width: 600px) {
+    .profile_header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile_header .profile_info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.profile_body .profile_about {
+    margin-bottom: 10px;
+}
+
+.profile_body .profile_about .profile_about_title h1 {
+    font-size: calc(15px + .5vw);
+    color: var(--primary-text);
+}
+.profile_body .profile_about .profile_about_content p {
+    font-size: 18px;
+    color: var(--secondary-text);
+}
+
+.profile_body .profile_badges {
+    margin-bottom: 10px;
+}
+
+.profile_body .profile_badges .profile_badges_title h1 {
+    font-size: calc(15px + .5vw);
+    color: var(--primary-text);
+}
+
+.profile_body .profile_badges .profile_badges_content p {
+    font-size: calc(12px + .5vw);
+    color: var(--secondary-text);
+}
+
+.profile_body .profile_badges .profile_badges_content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+
+    border: 1px solid var(--background-20);
+    border-radius: var(--radius-s);
+}
+
+.profile_body .profile_posts .profile_posts_title {
+    margin-bottom: 10px;
+}
+
+.profile_body .profile_posts .profile_posts_title h1 {
+    font-size: calc(15px + .5vw);
+    color: var(--primary-text);
+}
+
+.profile_page .posts .post:not(:last-of-type){
+    margin-bottom: 10px;
+}

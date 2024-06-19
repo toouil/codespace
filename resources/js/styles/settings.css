@@ -1,0 +1,293 @@
+.settings_page {
+    padding-bottom: 15px;
+}
+
+.settings_header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.settings_item_inner {
+    all: unset;
+    height: 35px;
+    padding: 0 10px;
+    cursor: pointer;
+    background: var(--background-20);
+    line-height: 1em;
+    border-radius: var(--radius-s);
+    padding-bottom: 2px;
+
+    color: var(--secondary-text);
+}
+
+.edit_profile_picture {
+    margin-bottom: 20px;
+}
+
+.edit_profile_picture .picture_preview {
+    width: 100%;
+    padding: 20px;
+}
+
+.edit_profile_picture .picture_preview img {
+    object-fit: cover;
+    width: calc(5vw + 100px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.edit_profile_picture form {
+    display: flex;
+    gap: 15px;
+}
+
+.edit_profile_picture form #picture_input {
+    display: none;
+}
+.edit_profile_picture form label {
+    cursor: pointer;
+}
+.edit_profile_picture form button.select_picture {
+    padding: 8px 25px;
+    border:  1px solid var(--button-background);
+    color: var(--button-background);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    pointer-events: none;
+}
+
+
+form .input_style {
+    border-radius: var(--radius-s);
+    border: none;
+    background: var(--comment-background);
+    color: var(--secondary-text);
+    outline: none;
+}
+
+button.save_btn {
+    border: none;
+    padding: 8px 25px !important;
+    border-radius: var(--radius-s);
+    background: var(--button-background);
+    color: var(--primary-button-text);
+    cursor: pointer;
+}
+
+.profile_settings_form .profile_settings_bio h2{
+    color: var(--primary-text);
+}
+
+.profile_settings_form .profile_settings_bio textarea {
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+}
+
+.profile_settings_form .profile_settings_links > div {
+    padding: 0 0 0 1vw;
+}
+
+.profile_settings_form .profile_settings_links h2{
+    color: var(--primary-text);
+}
+
+.profile_settings_form .profile_settings_links .profile_link {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.profile_settings_form .profile_settings_links .profile_link label{
+    font-size: 18px;
+    color: var(--secondary-text);
+}
+
+.profile_settings_form .profile_settings_country {
+    margin-bottom: 10px;
+}
+
+.profile_settings_form .profile_settings_country h2 {
+    color: var(--primary-text);
+}
+
+.profile_settings_form .profile_settings_country input {
+    width: 100%;
+}
+
+.account_settings_form.top {
+    margin-bottom: 20px;
+}
+
+.account_settings_form .account_settings_username {
+    margin-bottom: 5px;
+}
+
+.account_settings_form .account_settings_username h2{
+    color: var(--primary-text);
+}
+
+.account_settings_form .account_settings_username input{
+    width: 100%;
+}
+
+.account_settings_password h2{
+    color: var(--primary-text);
+}
+.account_settings_password p{
+    color: var(--secondary-text);
+}
+
+.account_settings_form .passwords_group {
+    padding: 0 0 0 1vw;
+}
+
+.account_settings_form .passwords_group div label{
+    font-size: 18px;
+    color: var(--secondary-text);
+}
+
+.account_settings_form .passwords_group > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.account_settings_form .profile_settings_links .profile_link label{
+    font-size: 18px;
+    color: var(--secondary-text);
+}
+
+form.account_settings_form button {
+    padding: 0 calc(10px + 1vw);
+}
+
+h2.settings_title {
+    font-size: 20px;
+}
+
+p.settings_p {
+    font-size: 15px;
+}
+
+
+.delete_user_section {
+    margin-top: 20px;
+    border: 1px solid var(--logout-color);
+    padding: 10px;
+    border-radius: var(--radius-l);
+}
+
+.delete_user_section header h2 {
+    color: var(--logout-color);
+}
+.delete_user_section header p {
+    color: var(--secondary-text);
+}
+
+.delete_user_section .openConfirmModalButton {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 1px solid var(--logout-color);
+    border-radius: var(--radius-s);
+    font-size: 15px;
+    color: var(--logout-color);
+    cursor: pointer;
+    transition: .3s;
+    background: none;
+}
+
+.delete_user_section .openConfirmModalButton:hover {
+    background: var(--logout-color);
+    color: var(--primary-button-text);
+}
+
+.confirme_delete_model {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: var(--background-30);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete_user_form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: calc(300px + 20vw);
+}
+
+.delete_user_form h2 {
+    color: var(--primary-text);
+}
+.delete_user_form p {
+    color: var(--secondary-text);
+}
+
+.delete_user_form .actions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.delete_user_form .actions button {
+    border: none;
+    padding: 8px 25px;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+
+}
+
+.delete_user_form .actions button[type="button"] {
+    color: var(--secondary-text);
+    background-color: var(--background-20);
+}
+
+.delete_user_form .actions button[type="submit"] {
+    color: var(--primary-button-text);
+    background-color: var(--logout-color);
+}
+
+
+
+
+
+
+
+.profile_uploader_section {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+
+    display: grid;
+    place-content: center;
+    background: var(--background-30);
+    backdrop-filter: blur(2px);
+}
+
+.profile_uploader {
+    padding: 15px;
+    min-width: calc(500px + 10vw);
+    gap: 10px;
+}
+
+.profile_uploader input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.crop_container {
+    position: relative;
+    width: 100%;
+    height: calc(200px + 20vh);
+}

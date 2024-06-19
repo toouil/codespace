@@ -1,0 +1,310 @@
+.posts_page {
+    display: flex;
+    gap: 30px;
+}
+
+.posts_page .posts_container {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.posts_page::-webkit-scrollbar {
+    display: none;
+}
+
+.posts_header {
+    margin-bottom: 15px;
+}
+
+.posts_page .posts {
+    display: flex;
+    flex-direction: column;
+}
+.posts_page .posts .post:not(:last-of-type){
+    margin-bottom: 10px;
+}
+
+.posts_page .posts .post{
+    width: 100%;
+}
+
+.post {
+    max-width: 100%;
+    padding: 10px;
+}
+
+.post .post_header {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.post .post_header .post_header_user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post .post_header .post_header_user .user_picture .post_user_picture_link {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.post .post_header .post_header_user .user_picture .post_user_picture_link img[alt="user_img"] {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post .post_header .post_header_user .user_post_details {
+    line-height: 1.1em;
+}
+
+.post .post_header .post_header_user .user_post_details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .4em;
+}
+
+.post .post_header .post_header_user .user_post_details .post_details_username .username_link {
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--primary-text);
+}
+.post .post_header .post_header_user .user_post_details .post_details_username .username_link:hover {
+    text-decoration: underline;
+}
+
+.post .post_header .post_header_user .user_post_details .post_details_date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.post .post_header .post_header_user .user_post_details .post_details_date .post_visibility {
+    padding-top: 4px;
+    color: var(--secondary-text);
+}
+
+.post .post_header .post_header_user .user_post_details .post_details_date .post_date {
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--secondary-text);
+    line-height: 1em;
+}
+
+.post .post_header .save_post_btn {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.post .post_header .save_post_btn * {
+    pointer-events: none;
+}
+.post .post_header .save_post_btn svg {
+    width: 27px;
+    height: 27px;
+    stroke: var(--secondary-text)
+}
+
+.post .post_header .save_post_btn.saved svg {
+    fill: var(--save-active);
+    stroke: var(--save-active);
+}
+
+.post .post_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 8px;
+    height: fit-content;
+    margin-bottom: 8px;
+}
+
+.post .post_tags .post_tag {
+    background: var(--comment-background);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.post .post_tags .post_tag .post_tag_link {
+    line-height: 1em;
+    padding: 4px 7px 6px;
+    text-decoration: none;
+    color: var(--secondary-text);
+}
+
+.post .post_tags .post_tag .post_tag_link:hover{
+    background: var(--background-20);
+}
+
+.post .post_content {
+    margin-bottom: 8px;
+    max-width: 100%;
+}
+
+.post .post_content .post_content_inner {
+    font-size: 18px;
+    color: var(--primary-text);
+    max-width: 100%;
+    line-break: anywhere;
+}
+
+.post .divider_x {
+    margin: 10px 0;
+}
+
+
+.post .post_reactions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px 7px;
+}
+
+.post .post_reactions .reaction_btn {
+    gap: 4px;
+    padding: 3px 0;
+    background: none;
+    border: none;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    transition: .1s;
+}
+
+.post .post_reactions .reaction_btn:hover {
+    background: var(--background-10);
+}
+.post .post_reactions .reaction_btn:active {
+    background: var(--background-20);
+}
+
+.post .post_reactions .reaction_btn * {
+    pointer-events: none;
+}
+
+.post .post_reactions .reaction_btn svg {
+    stroke: var(--secondary-text);
+}
+
+.post .post_reactions .reaction_btn.like_reaction_btn.liked * {
+    color: var(--like-active);
+    fill: var(--like-active);
+    stroke: none;
+}
+
+.post .post_reactions .reaction_btn .count {
+    color: var(--secondary-text);
+}
+
+.post .post_reactions .reaction_btn.loading {
+    pointer-events: none;
+}
+.post .post_reactions .reaction_btn.loading * {
+    opacity: .4;
+}
+
+.post.container.post_loader * {
+    pointer-events: none !important;
+}
+.post.container.post_loader .user_picture {
+    height: 40px;
+    width: 40px;
+    background: linear-gradient(to right, var(--comment-background), var(--background-40), var(--comment-background));
+    border-radius: 50%;
+    animation: loaderPost 400s infinite linear;
+    animation-delay: -1.2s;
+}
+.post.container.post_loader .post_details_username {
+    height: 20px;
+    width: 150px;
+    background: linear-gradient(to right, var(--comment-background) 10px, var(--background-40) 50px, var(--comment-background) 90px);
+    background-repeat: repeat-x;
+    animation: loaderPost 100s infinite linear;
+    animation-delay: -1.2s;
+    background-position: 100% 0;
+    border-radius: 4px;
+}
+.post.container.post_loader .post_details_date {
+    height: 15px;
+    width: 80px;
+    background: linear-gradient(to right, var(--comment-background) 10px, var(--background-40) 50px, var(--comment-background) 90px);
+    background-repeat: repeat-x;
+    animation: loaderPost 100s infinite linear;
+    animation-delay: -1.2s;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+.post.container.post_loader .post_tag {
+    background: linear-gradient(to right, var(--comment-background), var(--background-40), var(--comment-background));
+    background-repeat: repeat-x;
+    animation: loaderPost 100s infinite linear;
+}
+.post.container.post_loader .post_content_ {
+    margin-top: 15px;
+}
+.post.container.post_loader .post_content_ .post_content_div {
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(to right, var(--comment-background) 10px, var(--background-40) 50px, var(--comment-background) 90px);
+    background-repeat: repeat-x;
+    animation: loaderPost 100s infinite linear;
+    animation-delay: -1.2s;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+.post.container.post_loader .post_content_ .post_content_div:last-child {
+    width: 75%;
+}
+.post.container.post_loader .reaction_btn {
+    padding: 13px 0;
+    background: linear-gradient(to right, var(--comment-background) 10px, var(--background-40) 50px, var(--comment-background) 90px);
+    background-repeat: repeat-x;
+}
+
+.post.container.post_loader .reaction_btn.comment_reaction_btn {
+    animation: loaderPost 100s infinite linear;
+    animation-delay: -1s;
+}
+.post.container.post_loader .reaction_btn.like_reaction_btn {
+    animation: loaderPost 100s infinite linear;
+    animation-delay: -1.2s;
+}
+
+.posts .no_post {
+    font-size: 18px;
+    color: var(--secondary-text);
+}
+
+@keyframes loaderPost {
+    100% {
+        background-position-x: 18000px;
+    }
+}
+
+.posts_tag_top {
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+.posts_tag_top div > span {
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+}
+.posts_tag_top p{
+    color: var(--secondary-text);
+    font-size: 1rem;
+}
+.posts_tag_top span span {
+    color: var(--primary-text);
+    font-size: 1.75rem;
+}

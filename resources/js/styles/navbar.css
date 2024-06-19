@@ -1,0 +1,213 @@
+nav#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 99;
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px calc(20px + 4vw);
+
+    background: var(--surface-background);
+    box-shadow: 0 1px 2px var(--shadow);
+    pointer-events: none;
+}
+
+nav#navbar .nav_right_part {
+    display: none;
+    pointer-events: visible;
+}
+
+nav#navbar .nav_right_part button.expand_menu_btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+nav#navbar .nav_right_part button.expand_menu_btn > * {
+    pointer-events: none;
+}
+
+nav#navbar .nav_right_part button.expand_menu_btn svg {
+    width: 30px;
+    height: 30px;
+    stroke: var(--primary-text);
+}
+
+nav#navbar .nav_middle_part {
+    pointer-events: visible;
+}
+
+nav#navbar .nav_middle_part .nav_logo_link {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+nav#navbar .nav_middle_part .nav_logo_link svg {
+    fill: var(--primary-text);
+    width: 100%;
+    height: 100%;
+}
+
+nav#navbar .nav_left_part {
+    gap: 20px;
+    pointer-events: visible;
+}
+
+nav#navbar .nav_left_part .nav_item .btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    background: none;
+    border: none;
+}
+
+nav#navbar .nav_left_part .nav_item .btn * {
+    pointer-events: none;
+}
+
+nav#navbar .nav_left_part .theme svg  {
+    width: 20px;
+    height: 20px;
+
+    fill: var(--primary-text);
+}
+nav#navbar .nav_left_part .mail svg {
+    margin-top: 3px;
+    width: 24px;
+    height: 24px;
+
+    fill: var(--primary-text);
+}
+
+nav#navbar .nav_left_part .profile .profile_btn {
+    padding: 2px;
+    border: 1px solid var(--secondary-text);
+    border-radius: 50%;
+}
+
+nav#navbar .nav_left_part .profile img {
+    width: 100%;
+    height:  100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mail_count {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    width: 17px;
+    height: 17px;
+    padding-bottom: 2px;
+    border: var(--surface-background) 1px solid;
+    border-radius: 50%;
+    font-size: 9px;
+    color: var(--notification-badge-color);
+    background: var(--notification-badge);
+}
+
+nav#navbar .nav_left_part .nav_item .profile_btn input[type="checkbox"] {
+    display: none;
+}
+
+
+aside.profile_options {
+    position: fixed;
+    top: 70px;
+    right: calc(20px + 4vw);
+    width: fit-content;
+    
+
+    overflow: hidden;
+    z-index: 10;
+}
+
+aside.profile_options .divider_x {
+    width: 80%;
+    pointer-events: none;
+}
+
+aside.profile_options .profile_options_items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 45px;
+    text-decoration: none;
+    padding: 0 20px;
+
+    background: none;
+    border: none;
+    transition: .2s background;
+    cursor: pointer;
+}
+
+aside.profile_options .profile_options_items * {
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+aside.profile_options .profile_options_items:hover {
+    background: var(--background-10);
+}
+
+aside.profile_options .profile_options_items .profile_options_items_text{
+    font-size: 16px;
+    color: var(--secondary-text);
+}
+
+aside.profile_options .profile_options_items svg {
+    width: 18px;
+    height: 18px;
+}
+
+aside.profile_options .profile_options_items.f svg {
+    fill: var(--secondary-text);
+}
+aside.profile_options .profile_options_items.s svg {
+    stroke: var(--secondary-text);
+    stroke-width: 2;
+}
+
+aside.profile_options .profile_options_items.f.logout svg {
+    fill: var(--logout-color) !important;
+    transform: translateX(-1px);
+}
+aside.profile_options .profile_options_items.logout .profile_options_items_text{
+    color: var(--logout-color) !important;
+}
+
+
+
+nav#navbar .nav_left_part .theme .theme_btn svg:first-child {
+    display: none;
+}
+html[theme="dark"] nav#navbar .nav_left_part .theme .theme_btn svg:first-child {
+    display: block;
+}
+html[theme="dark"] nav#navbar .nav_left_part .theme .theme_btn svg:last-child {
+    display: none;
+}
+
+
+@media (max-width: 800px) {
+    nav#navbar .nav_middle_part {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    nav#navbar .nav_right_part {
+        display: block;
+    }
+}

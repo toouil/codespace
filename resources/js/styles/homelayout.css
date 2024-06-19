@@ -1,0 +1,14 @@
+.home_layout_page {
+    display: grid;
+    grid-template-columns: calc(140px + 10vw) auto;
+    grid-template-rows: 1fr;
+    gap: 30px;
+    padding: 80px calc(10px + 2vw) 0;
+    min-height: 100vh;
+}
+
+@media (max-width: 800px) {
+    .home_layout_page {
+        grid-template-columns: 1fr;
+    }
+}

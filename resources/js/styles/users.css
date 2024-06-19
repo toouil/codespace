@@ -1,0 +1,39 @@
+.users_container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.users_container .user_link {
+    height: 60px;
+    padding: 5px 10px;
+    border-radius: var(--radius-s);
+    background: var(--background-10);
+    text-decoration: none;
+    transition: background .3s;
+    gap: 10px;
+}
+
+.users_container .user_link * {
+    pointer-events: none;
+}
+
+.users_container .user_link:hover {
+    background: var(--background-20);
+}
+
+.users_container .user_link img {
+    height: 90%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.users_container .user_link h1 {
+    font-size: 18px;
+    font-weight: 100;
+    color: var(--primary-text);
+}
