@@ -1,1 +1,0 @@
-import{j as s}from"./app-xtGLZL-7.js";import{L as o}from"./index-BIcDevOB.js";function r({text:a}){return s.jsxs("div",{className:"loader_page content_center y",children:[s.jsx("span",{className:"loading_icon",children:s.jsx(o,{})}),a&&s.jsxs("p",{className:"loading_txt",children:[" ",a," "]})]})}export{r as L};
