@@ -10,6 +10,7 @@
 }
 
 .auth_container form.auth_form {
+    margin-top: 10px;
     gap: 10px;
 }
 
@@ -35,18 +36,20 @@
     font-size: 15px;
 }
 
-.auth_container .auth_with_google {
-    margin-top: 10px;
-}
-
 .auth_container .auth_with_google .google_auth_btn {
-    color: var(--primary-button-text);
-    background: var(--button-background);
-    border: none;
+    color: var(--button-background);
+    border: var(--button-background) 1px solid;
+    background: none;
     height: 40px;
     border-radius: var(--radius-s) !important;
     gap: 10px;
     cursor: pointer;
+    transition: .3s;
+}
+
+.auth_container .auth_with_google .google_auth_btn:hover {
+    background: var(--button-background);
+    color: var(--primary-button-text);
 }
 
 .auth_container .auth_with_google .google_auth_btn svg {

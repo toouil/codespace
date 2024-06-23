@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { Logo, Mail, Menu, Moon, Sun } from "@/assets/icons";
 import ProfileOptions from "./ProfileOptions";
 import SideBar from "./SideBar";
 import "@/styles/navbar.css";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import { useEffect } from 'react';
+import Echo from 'laravel-echo';
 
 export default function NavBar({ user }) {
     const [openProfileOption, setOpenProfileOption] = useState(false);
@@ -18,6 +20,19 @@ export default function NavBar({ user }) {
             setOpenSidebar(false);
         }, 10);
     };
+
+
+    useEffect(() => {
+        window.Echo.private(`App.Models.User.${user.id}`)
+            .notification((notification) => {
+                console.log(notification.message);
+                // Display notification to the user
+            });
+
+        return () => {
+            window.Echo.leave(`App.Models.User.${user.id}`);
+        };
+    }, []);
 
     return (
         <>

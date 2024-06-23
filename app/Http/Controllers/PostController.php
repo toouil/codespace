@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use App\Notifications\PostReacted;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -212,6 +213,8 @@ class PostController extends Controller
         try {
             $postId = $request->postid;
             $user = $request->user();
+            $post = Post::where("postid", $postId)->first();
+            $postUser = User::where("userid", $post->posted_by)->first();
 
             $validator = Validator::make($request->all(), [
                 'postid' => ['required', 'starts_with:post_'],
@@ -228,6 +231,7 @@ class PostController extends Controller
                 'content' => $request->content,
             ]);
             Post::where('postid', $postId)->increment('comments');
+            $postUser->notify(new PostReacted('comment'));
 
             return response()->json(['status' => 200, 'data' => $comment], 200);
         } catch (Exception $err) {

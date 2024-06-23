@@ -7,6 +7,7 @@ use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::middleware('auth')->group(function () {
     Route::controller(PostController::class)->group(function () {

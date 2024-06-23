@@ -18,7 +18,7 @@ class User extends Authenticatable
         'email',
         'password',
         'picture',
-        'provider',
+        'google_id'
     ];
 
     protected $hidden = [
@@ -32,7 +32,6 @@ class User extends Authenticatable
 
         static::creating(function ($model) {
             $model->userid = Str::uuid();
-            $model->picture = env("STORAGE_ROOT", "/public") . "/user_profile_picture/profile_picture.png";
         });
     }
 

@@ -1,13 +1,21 @@
 import { useEffect } from "react";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import Loader from "@/Components/Loader";
-import { Google } from "@/assets/icons";
 import Input from "@/Components/Input";
 import { show_errors } from "@/global/Functions";
+import { notify_error } from "@/Components/Notify";
 
 export default function Login() {
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { flash } = usePage().props;
+
+    useEffect(() => {
+        if (flash.error) {
+            notify_error(flash.error)
+        }
+    }, [flash])
+
+    const { data, setData, post, processing, reset } = useForm({
         email: "",
         password: "",
         remember: false,
@@ -23,12 +31,10 @@ export default function Login() {
         e.preventDefault();
         post(route("login"), {
             onError: (error) => {
-                show_errors(error)
-            }
+                show_errors(error);
+            },
         });
     };
-
-    const google_auth = () => console.log("google_auth");
 
     return (
         <GuestLayout>
@@ -47,27 +53,6 @@ export default function Login() {
                         </Link>
                     </span>
                 </p>
-            </div>
-
-            <div className="auth_with_google w_100">
-                <button
-                    className="google_auth_btn w_100 content_center"
-                    onClick={google_auth}
-                    data-title="Not working right now !!"
-                >
-                    <span className="google_auth_btn_logo">
-                        <Google />
-                    </span>
-                    <span className="google_auth_btn_text">
-                        Log in with Google
-                    </span>
-                </button>
-            </div>
-
-            <div className="or_section content_center">
-                <span className="divider_x"></span>
-                <span className="or">or</span>
-                <span className="divider_x"></span>
             </div>
 
             <form

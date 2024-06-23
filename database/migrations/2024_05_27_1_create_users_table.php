@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('picture')->nullable()->default(null);
-            $table->string('provider')->default("codespace");
+            $table->string('google_id')->nullable();
+            $table->string('picture')->default(env("STORAGE_ROOT", "/public") . "/user_profile_picture/profile_picture.png");
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

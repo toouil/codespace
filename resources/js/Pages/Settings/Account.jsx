@@ -13,7 +13,7 @@ export default function Account({ auth: { user } }) {
                 <div>
                     <UpdateUsername user={user} />
 
-                    {user.provider == "codespace" && <UpdatePasswordForm  />}
+                    {!user?.google_id && <UpdatePasswordForm  />}
 
                     <DeleteUserForm />
                 </div>

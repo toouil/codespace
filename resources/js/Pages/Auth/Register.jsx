@@ -24,12 +24,10 @@ export default function Register() {
         e.preventDefault();
         post(route("register"), {
             onError: (error) => {
-                show_errors(error)
-            }
+                show_errors(error);
+            },
         });
     };
-
-    const google_auth = () => console.log("google_auth");
 
     return (
         <GuestLayout>
@@ -42,7 +40,7 @@ export default function Register() {
             <div className="auth_switch">
                 <p>
                     <span className="auth_switch_text">
-                        Already have an account?
+                        Already have an account?{" "}
                     </span>
                     <span>
                         <Link className="blue_link" href={route("login")}>
@@ -50,27 +48,6 @@ export default function Register() {
                         </Link>
                     </span>
                 </p>
-            </div>
-
-            <div className="auth_with_google w_100">
-                <button
-                    className="google_auth_btn w_100 content_center"
-                    onClick={google_auth}
-                    data-title="Not working right now !!"
-                >
-                    <span className="google_auth_btn_logo">
-                        <Google />
-                    </span>
-                    <span className="google_auth_btn_text">
-                        Sign up with Google
-                    </span>
-                </button>
-            </div>
-
-            <div className="or_section content_center">
-                <span className="divider_x"></span>
-                <span className="or">or</span>
-                <span className="divider_x"></span>
             </div>
 
             <form
