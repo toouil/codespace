@@ -19,11 +19,21 @@ class SettingsController extends Controller
         $profileController = new ProfileController();
         $profile = $profileController->authuserprofile($request);
 
-        return Inertia::render('Settings/Profile', ["profile" => $profile]);
+        return Inertia::render('Settings/Profile', ["profile" => $profile])
+        ->withViewData([
+            "title" => "Profile settings | CodeSpace",
+            "description" => "Edite your profile settings",
+            "keywords" => "profile, profile settings"
+        ]);
     }
 
     public function accountSettings (Request $request) {
-        return Inertia::render('Settings/Account');
+        return Inertia::render('Settings/Account')
+        ->withViewData([
+            "title" => "Account settings | CodeSpace",
+            "description" => "Edite your account settings",
+            "keywords" => "Account, Account settings"
+        ]);
     }
     
     public function updateProfile (Request $request) {

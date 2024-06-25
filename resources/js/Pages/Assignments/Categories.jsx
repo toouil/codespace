@@ -1,11 +1,14 @@
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import "@/styles/categories.css";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Helmet } from "react-helmet";
 
 export default function Categories({ auth, categories }) {
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Assignments categories" />
+            <Helmet>
+                <title>Categories | CodeSpace</title>
+            </Helmet>
             <main className="categories_page">
                 <div className="categories_title">
                     <h2>Select a category :</h2>

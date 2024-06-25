@@ -12,6 +12,7 @@ import "@/styles/profile.css";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import PostsLayout from "@/Layouts/PostsLayout";
 import { Head } from "@inertiajs/react";
+import { Helmet } from "react-helmet";
 
 function Page({ auth, user }) {
     if (user) {
@@ -159,7 +160,9 @@ function Page({ auth, user }) {
 export default function Profile({ auth, user }) {
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title={user.username + " profile"} />
+            <Helmet>
+                <title>{user.username + "'s profile"} | CodeSpace</title>
+            </Helmet>
             <Page auth={auth} user={user} />
         </AuthenticatedLayout>
     );

@@ -23,7 +23,12 @@ class PostController extends Controller
             $posts = $this->getAllPosts($request);
 
             if ($posts["status"] == 200) {
-                return Inertia::render('Posts/AllPosts', ['posts' => $posts["data"]]);
+                return Inertia::render('Posts/AllPosts', ['posts' => $posts["data"]])
+                ->withViewData([
+                    "title" => "CodeSpace | " . $request->user()->username,
+                    "description" => "Welcome to codespace , here is the newest posts",
+                    "keywords" => "codespace posts, codespace home page"
+                ]);
             }
 
             return response('Something went wrong !!!', 500);
@@ -38,7 +43,12 @@ class PostController extends Controller
             $posts = $this->getPostsByTag($request);
 
             if ($posts["status"] == 200) {
-                return Inertia::render('Posts/PostsByTag', ['posts' => $posts["data"], "tag"=> $request->tag]);
+                return Inertia::render('Posts/PostsByTag', ['posts' => $posts["data"], "tag"=> $request->tag])
+                ->withViewData([
+                    "title" => "#" . $request->tag . " - Explore codeSpace",
+                    "description" => "See what people post under " . $request->tag . " tag",
+                    "keywords" => $request->tag. " tag, find by tag"
+                ]);
             }
 
             return response('Something went wrong !!!', 500);
@@ -53,7 +63,12 @@ class PostController extends Controller
             $posts = $this->getPostsByQuery($request);
 
             if ($posts["status"] == 200) {
-                return Inertia::render('Posts/PostsByQuery', ['posts' => $posts["data"], "query"=> $request->query("query")]);
+                return Inertia::render('Posts/PostsByQuery', ['posts' => $posts["data"], "query"=> $request->query("query")])
+                ->withViewData([
+                    "title" => $request->query("query") . " - Search Results",
+                    "description" => "Search results for" . $request->query("query"),
+                    "keywords" => $request->query("query") . "search, find post"
+                ]);
             }
 
             return response('Something went wrong !!!', 500);

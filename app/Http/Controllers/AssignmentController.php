@@ -53,7 +53,12 @@ class AssignmentController extends Controller
             }])->where('category', $request->category)->inRandomOrder()->limit(15)->get();
             $sum_assignments = $assignments->sum("score");
 
-            return Inertia::render('Assignments/Assignments', ['assignments' => $assignments, "category" => $request->category, "sumScores" => $sum_assignments]);
+            return Inertia::render('Assignments/Assignments', ['assignments' => $assignments, "category" => $request->category, "sumScores" => $sum_assignments])
+            ->withViewData([
+                "title" => $request->category . " | CodeSpace",
+                "description" => "Pass " . $request->category . " assignments",
+                "keywords" => "assignments"
+            ]);
         } catch (Exception $err) {
             return response()->json([ "status" => 404, "message" => "Something wrong !!"]);
         }
@@ -87,7 +92,12 @@ class AssignmentController extends Controller
     public function getCategories (Request $request) {
         try {
             $categories = Category::select("name", "logo")->get();
-            return Inertia::render('Assignments/Categories', ['categories' => $categories]);
+            return Inertia::render('Assignments/Categories', ['categories' => $categories])
+            ->withViewData([
+                "title" => "Categories | CodeSpace",
+                "description" => "You can pass assignments in any category you want",
+                "keywords" => "categories"
+            ]);
         } catch (Exception $err) {
             return response()->json([ "status" => 404, "error" => $err]);
         }

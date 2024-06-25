@@ -20,12 +20,22 @@ class UserController extends Controller
 
             if ($query == null) {
                 $users = User::inRandomOrder()->limit(20)->get();
+                return Inertia::render("User/Users", [ "status" => 200, "users" => $users])
+                ->withViewData([
+                    "title" => "Users | CodeSpace",
+                    "description" => "See users",
+                    "keywords" => "users, friends"
+                ]);
             }
-            else {
-                $users = User::where('username', 'like', '%'.$request->query("query").'%')->get();
-            }
+            
+            $users = User::where('username', 'like', '%'.$request->query("query").'%')->get();
+            return Inertia::render("User/Users", [ "status" => 200, "users" => $users, "userquery" =>$request->query("query")])
+            ->withViewData([
+                "title" => $request->query("query") . " users search results | CodeSpace",
+                "description" => "Find users by name : " . $request->query("query"),
+                "keywords" => "users, friends"
+            ]);
 
-            return Inertia::render("User/Users", [ "status" => 200, "users" => $users]);
         } catch (Exception $err) {
             return response()->json([ "status" => 404, "message" => $err->getMessage()]);
         }

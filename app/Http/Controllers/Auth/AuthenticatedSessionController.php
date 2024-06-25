@@ -17,7 +17,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Auth/Login');
+        return Inertia::render('Auth/Login')
+        ->withViewData([
+            "title" => "CodeSpace | Log in",
+            "description" => "Login with youre account in CodeSpace",
+            "keywords" => "codespace login",
+        ]);
     }
 
     /**

@@ -15,9 +15,19 @@ class ScoreController extends Controller
     public function showScores (Request $request) {
         try {
             $categories = Category::get();
-            return Inertia::render('Leaderboard/Leaderboard', [ "categories" => $categories ]);
+            return Inertia::render('Leaderboard/Leaderboard', [ "categories" => $categories ])
+            ->withViewData([
+                "title" => "Leaderboard | CodeSpace",
+                "description" => "See others users's scores and rank",
+                "keywords" => "scores, Leaderboard"
+            ]);
         } catch (Exception $err) {
-            return Inertia::render('Leaderboard/Leaderboard', [ "categories" => [] ]);
+            return Inertia::render('Leaderboard/Leaderboard', [ "categories" => [] ])
+            ->withViewData([
+                "title" => "Leaderboard | CodeSpace",
+                "description" => "See others users's scores and rank",
+                "keywords" => "scores, Leaderboard"
+            ]);
         }
     }
 

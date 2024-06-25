@@ -56,6 +56,7 @@
     border:  1px solid var(--button-background);
     color: var(--button-background);
     border-radius: var(--radius-s);
+    background: none;
     cursor: pointer;
     pointer-events: none;
 }
@@ -78,10 +79,6 @@ button.save_btn {
     cursor: pointer;
 }
 
-.profile_settings_form .profile_settings_bio h2{
-    color: var(--primary-text);
-}
-
 .profile_settings_form .profile_settings_bio textarea {
     padding: 10px;
     width: 100%;
@@ -92,9 +89,6 @@ button.save_btn {
     padding: 0 0 0 1vw;
 }
 
-.profile_settings_form .profile_settings_links h2{
-    color: var(--primary-text);
-}
 
 .profile_settings_form .profile_settings_links .profile_link {
     display: flex;
@@ -112,9 +106,6 @@ button.save_btn {
     margin-bottom: 10px;
 }
 
-.profile_settings_form .profile_settings_country h2 {
-    color: var(--primary-text);
-}
 
 .profile_settings_form .profile_settings_country input {
     width: 100%;
@@ -126,10 +117,6 @@ button.save_btn {
 
 .account_settings_form .account_settings_username {
     margin-bottom: 5px;
-}
-
-.account_settings_form .account_settings_username h2{
-    color: var(--primary-text);
 }
 
 .account_settings_form .account_settings_username input{
@@ -170,6 +157,7 @@ form.account_settings_form button {
 
 h2.settings_title {
     font-size: 20px;
+    color: var(--primary-text);
 }
 
 p.settings_p {
@@ -227,9 +215,6 @@ p.settings_p {
     max-width: calc(300px + 20vw);
 }
 
-.delete_user_form h2 {
-    color: var(--primary-text);
-}
 .delete_user_form p {
     color: var(--secondary-text);
 }

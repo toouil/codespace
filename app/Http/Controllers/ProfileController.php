@@ -37,7 +37,12 @@ class ProfileController extends Controller
             $user->formatted_created_at  = Carbon::parse($user->created_at)->toDayDateTimeString();
             $user->posts = $PostController->getPostsByUser($request);
     
-            return Inertia::render('Profile/Profile', [ "user" => $user ]);
+            return Inertia::render('Profile/Profile', [ "user" => $user ])
+            ->withViewData([
+                "title" => $request->username . "'s profile | CodeSpace",
+                "description" => "You're now in " . $request->username . " profile page",
+                "keywords" => $request->username . " profile, profile page, codespace profile"
+            ]);
         }
         catch (Exception $err) {
             return Inertia::render('Profile/Profile', [ "user" => null ]);

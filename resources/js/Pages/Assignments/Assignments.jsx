@@ -5,10 +5,10 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import "@/styles/assignments.css";
 import Loader from "@/Components/Loader";
 import useCountdown from "@/hooks/useCountdown";
-import { Head } from "@inertiajs/react";
 import useApi from "@/hooks/useApi";
 import ScoreResults from "@/Components/ScoreResults";
 import { notify_error } from "@/Components/Notify";
+import { Helmet } from "react-helmet";
 
 export default function Assignments({ auth, assignments, category }) {
     const { formattedCountdown, isTimeOut, stopCountdown, resetCountdown } =
@@ -65,7 +65,10 @@ export default function Assignments({ auth, assignments, category }) {
 
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title={`${category}'s assignments`} />
+            <Helmet>
+                <title>{`${category}'s assignments`} | CodeSpace</title>
+            </Helmet>
+
             <div className="assignments_page">
                 <form className="assignments_container container">
                     <div className="assignments_header content_center">

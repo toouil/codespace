@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 import Input from "@/Components/Input";
 import Loader from "@/Components/Loader";
-import { Google } from "@/assets/icons";
 import { show_errors } from "@/global/Functions";
+import { Helmet } from "react-helmet";
 
 export default function Register() {
     const { data, setData, post, processing, reset } = useForm({
@@ -31,7 +31,9 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Helmet>
+                <title>Register | CodeSpace</title>
+            </Helmet>
 
             <div className="auth_title">
                 <h1>Create Account</h1>

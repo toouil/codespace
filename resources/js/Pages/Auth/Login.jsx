@@ -38,7 +38,9 @@ export default function Login() {
 
     return (
         <GuestLayout>
-            <Head title="Log in" />
+            <Helmet>
+                <title>Log in | CodeSpace</title>
+            </Helmet>
 
             <div className="auth_title">
                 <h1>Log in</h1>

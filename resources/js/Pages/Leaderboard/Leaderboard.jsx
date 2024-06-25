@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Loader from "@/Components/Loader";
 import NotFound from "@/Components/NotFound";
 import "@/styles/leaderboard.css";
+import { Helmet } from "react-helmet";
 
 function Page({ categories }) {
     const [response, setResponse] = useState(null)
@@ -141,7 +142,9 @@ function Page({ categories }) {
 export default function Leaderboard ({ auth, categories }) {
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Leaderboard" />
+            <Helmet>
+                <title>Leaderboard | CodeSpace</title>
+            </Helmet>
             { (categories && categories.length > 0) ? <Page categories={categories} /> : <NotFound text="No categories found to get scores" />} 
         </AuthenticatedLayout>
     )
