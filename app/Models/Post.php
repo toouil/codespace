@@ -31,6 +31,10 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'userid', 'posted_by');
+        return $this->belongsTo(User::class, 'posted_by', 'userid');
+    }
+
+    public function savedPosts () {
+        return $this->hasMany(SavedPost::class, "postid", "postid");
     }
 }

@@ -6,7 +6,7 @@ export default function PostsByQuery({ auth: { user }, posts, query }) {
     return (
         <AuthenticatedLayout user={user}>
             <Helmet>
-                <title>{query + " - Search Results"} | CodeSpace</title>
+                <title>Saved posts</title>
             </Helmet>
             <PostsLayout user={user} initialPosts={posts} />
         </AuthenticatedLayout>

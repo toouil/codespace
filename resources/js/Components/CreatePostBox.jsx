@@ -1,19 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Xmark } from "@/assets/icons";
 import { show_errors } from "@/global/Functions";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import Loader from "./Loader";
 import useApi from "@/hooks/useApi";
 import Dropdown from "./Dropdown";
 
-export default function CreatePostBox({ setCreatePost, user }) {
+export default function CreatePostBox({ setCreatePost, post = {} }) {
+    const { user } = usePage().props.auth
     const [isFetching, setIsFetching] = useState(false);
-    const postContentInput = useRef();
     const { data, setData, postRequest } = useApi({
         dataTemplate: {
-            tags: "",
-            content: "",
-            visibility: "public",
+            postid: post?.postid || null,
+            tags: post?.tags || "",
+            content: post?.content ||  "",
+            visibility: post?.visibility ||  "public"
         },
         onSuccess: (response) => {
             if (response?.status == 200) {
@@ -21,9 +22,9 @@ export default function CreatePostBox({ setCreatePost, user }) {
             }
 
             setIsFetching(false);
-            show_errors(response?.error);
+            show_errors(response?.error)
         },
-        onError: (err) => {
+        onError: () => {
             setIsFetching(false);
         },
     });
@@ -47,12 +48,7 @@ export default function CreatePostBox({ setCreatePost, user }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const contentText = postContentInput.current.innerText;
-        const content = contentText
-            .split("\n")
-            .filter((line) => !["", /  +/g].includes(line))
-            .join("\n");
-        postRequest(route("post.add"), { content });
+        postRequest(route("post.add"));
         setIsFetching(true);
     };
 
@@ -102,10 +98,7 @@ export default function CreatePostBox({ setCreatePost, user }) {
                                     onChange={(op) =>
                                         setData("visibility", op?.value)
                                     }
-                                    defaultOption={{
-                                        value: "public",
-                                        label: "Public",
-                                    }}
+                                    defaultOption={data.visibility}
                                     options={[
                                         {
                                             value: "public",
@@ -131,13 +124,12 @@ export default function CreatePostBox({ setCreatePost, user }) {
                         />
                     </div>
                     <div className="create_post_content_text">
-                        <div
+                        <textarea
                             className="create_post_content_text_input"
-                            contentEditable="true"
-                            ref={postContentInput}
-                            role="textbox"
-                            data-placeholder={`What's on your mind, ${user?.username} ?`}
-                        ></div>
+                            placeholder={`What's on your mind, ${user?.username} ?`}
+                            value={data.content}
+                            onChange={(e) => setData("content", e.target.value)}
+                        />
                     </div>
 
                     <div className="submit_post_section">

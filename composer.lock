@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "116537f54b030c3243021c727e828c04",
+    "content-hash": "c6337c5636bc60ce2b36750218928c8c",
     "packages": [
         {
             "name": "brick/math",
@@ -1112,56 +1112,6 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
-        },
-        {
-            "name": "imagecow/imagecow",
-            "version": "v2.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oscarotero/imagecow.git",
-                "reference": "bcf60d475683a36a40cb2343a102aa79114b4525"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/imagecow/zipball/bcf60d475683a36a40cb2343a102aa79114b4525",
-                "reference": "bcf60d475683a36a40cb2343a102aa79114b4525",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8|^6.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Imagecow\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Oscar Otero",
-                    "email": "oom@oscarotero.com",
-                    "homepage": "http://oscarotero.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP library to manipulate and generate responsive images",
-            "homepage": "https://github.com/oscarotero/imagecow/",
-            "keywords": [
-                "image"
-            ],
-            "support": {
-                "email": "oom@oscarotero.com",
-                "issues": "https://github.com/oscarotero/imagecow/issues",
-                "source": "https://github.com/oscarotero/imagecow/tree/master"
-            },
-            "time": "2019-01-12T11:54:02+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",

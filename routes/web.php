@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScoreController;
@@ -14,7 +15,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/search', 'renderPostsByQuery')->name('search');
         Route::get('/tag/{tag}', 'renderPostsByTag')->name('posts.byTag');
-        Route::post('/post', 'addPost')->name('post.add');
+        Route::get('/savedposts', 'renderPostsBySave')->name('posts.bySave');
+        Route::post('/addpost', 'addPost')->name('post.add');
+        Route::post('/deletepost', 'deletePost')->name('post.delete');
+        Route::post('/savepost', 'savePost')->name('post.save');
         Route::post('/like', 'likePost')->name('post.like');
         Route::post('/comment', 'commentPost')->name('post.addcomment');
         Route::get('/comments', 'getPostComments')->name('post.getcomments');
@@ -23,6 +27,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/api/postsTag', 'getPostsByTag')->name('post.apiTag');
         Route::get('/api/postsQuery', 'getPostsByQuery')->name('post.apiQuery');
         Route::get('/api/postsUser', 'getPostsByUser')->name('post.apiUser');
+        Route::get('/api/postsSave', 'getPostsBySave')->name('post.apiSave');
     });
 });
 
@@ -64,6 +69,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/settings/edit/picture', 'updateAccountPicture')->name("update.picture");
         Route::post('/settings/edit/profile', 'updateProfile')->name("update.profile");
         Route::post('/settings/delete/user', 'deleteAccount')->name("delete.account");
+    });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::controller(NotificationController::class)->group(function () {
+        Route::get('/notifications', 'notifications')->name("notifications");
     });
 });
 

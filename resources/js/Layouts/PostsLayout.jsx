@@ -27,6 +27,7 @@ export default function PostsLayout({ user, initialPosts, showUserInfo = true, c
         });
         setPosts(updatedPosts);
     };
+    
     return (
         <>
             <div className="posts_page">

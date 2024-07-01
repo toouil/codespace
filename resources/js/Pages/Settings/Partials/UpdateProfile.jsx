@@ -1,6 +1,7 @@
 import Input from "@/Components/Input";
 import Loader from "@/Components/Loader";
 import { notify_success } from "@/Components/Notify";
+import { show_errors } from "@/global/Functions";
 import useApi from "@/hooks/useApi";
 import React from "react";
 

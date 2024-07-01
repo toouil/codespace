@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string("postid");
+            $table->string("reaction_id")->unique();
             $table->uuid("commented_by");
             $table->longText("content");
             $table->timestamps();

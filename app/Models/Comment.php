@@ -10,6 +10,7 @@ class Comment extends Model
     use HasFactory;
 
     public $fillable = [
+        "reaction_id",
         "postid",
         "commented_by",
         "content"

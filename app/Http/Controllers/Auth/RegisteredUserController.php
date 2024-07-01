@@ -22,7 +22,7 @@ class RegisteredUserController extends Controller
     {
         return Inertia::render('Auth/Register')
         ->withViewData([
-            "title" => "CodeSpace | Register",
+            "title" => "Register | CodeSpace",
             "description" => "Create youre account in CodeSpace",
             "keywords" => "codespace Register"
         ]);

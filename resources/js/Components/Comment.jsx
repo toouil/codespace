@@ -10,7 +10,7 @@ export default function Comment({ comment }) {
             <div className="comment_left_part">
                 <div className="comment_user_picture">
                     <Link
-                        to={`/profile/${username}`}
+                        href={route("profile", { username })}
                         className="comment_user_picture_link content_center"
                     >
                         <img src={picture} alt="comment user picture" />
@@ -22,7 +22,7 @@ export default function Comment({ comment }) {
                 <div className="comment_top">
                     <div className="comment_user_details">
                         <Link
-                            to={`/profile/${username}`}
+                            href={route("profile", { username })}
                             className="comment_username"
                         >
                             {username}

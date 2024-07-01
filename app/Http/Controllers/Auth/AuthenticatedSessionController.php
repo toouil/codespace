@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
     {
         return Inertia::render('Auth/Login')
         ->withViewData([
-            "title" => "CodeSpace | Log in",
+            "title" => "Log in | CodeSpace",
             "description" => "Login with youre account in CodeSpace",
             "keywords" => "codespace login",
         ]);

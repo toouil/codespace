@@ -1,21 +1,15 @@
 import React, { useEffect, useRef } from "react";
-import { Logout, ProfileIcon, Settings } from "@/assets/icons";
+import { Logout, ProfileIcon, Save, Settings } from "@/assets/icons";
 import { Link } from "@inertiajs/react";
 
-export default function ProfileOptions({ setOpenProfileOption, user }) {
+export default function ProfileOptions({ setOpenProfileOptionToFalse, user }) {
     const ref = useRef(null);
 
     useEffect(() => {
-        const handleClick = () => {
-            setTimeout(() => {
-                setOpenProfileOption(false);
-            }, 10);
-        };
-
-        document.addEventListener("click", handleClick, true);
+        document.addEventListener("click", setOpenProfileOptionToFalse, true);
 
         return () => {
-            document.removeEventListener("click", handleClick, true);
+            document.removeEventListener("click", setOpenProfileOptionToFalse, true);
         };
     }, [ref]);
 
@@ -28,6 +22,14 @@ export default function ProfileOptions({ setOpenProfileOption, user }) {
                 <ProfileIcon />
                 <span className="profile_options_items_text">Profile</span>
             </Link>
+            
+            <Link
+                href={route("posts.bySave")}
+                className="profile_options_items s"
+            >
+                <Save />
+                <span className="profile_options_items_text">Saved</span>
+            </Link>
 
             <Link
                 href={route("settings.profile")}
@@ -36,6 +38,7 @@ export default function ProfileOptions({ setOpenProfileOption, user }) {
                 <Settings />
                 <span className="profile_options_items_text">Settings</span>
             </Link>
+
 
             <div className="divider_x"></div>
 

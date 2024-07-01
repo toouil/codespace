@@ -53,7 +53,7 @@ class SettingsController extends Controller
                 return response()->json([ "status" => 404, "error" => $validator->messages()]); 
             }
             
-            Profile::updateOrCreate(['userid' => $request->user()->userid], $request->all());
+            $request->user()->profile()->updateOrCreate($request->all());
 
             return response()->json([ "status" => 200 ]);
         } catch (Exception $err) {
@@ -76,10 +76,7 @@ class SettingsController extends Controller
                 $path = env("STORAGE_ROOT", "/public") . "/" . $folderName . "/" . $name;
 
                 if ($path) {
-                    $user = $request->user();
-                    $user->picture = $path;
-                    $user->save();
-
+                    $request->user()->update([ "picture" => $path ]);
                     return back();
                 }
             }
@@ -99,7 +96,6 @@ class SettingsController extends Controller
         if ($validator->fails()) {
             return response()->json([ "status" => 404, "error" => $validator->messages()]);
         }
-
     
         $request->user()->update([
             "username" => $request->username
@@ -114,15 +110,12 @@ class SettingsController extends Controller
             'password' => ['required', 'current_password'],
         ]);
 
-        $user = $request->user();
-
         Auth::logout();
 
-        $user->delete();
-
+        $request->user()->delete();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return redirect( route('index') );
     }
 }

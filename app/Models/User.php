@@ -52,9 +52,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class, 'posted_by', 'userid');
     }
 
+    public function savedPosts()
+    {
+        return $this->hasMany(SavedPost::class, 'saved_by', 'userid');
+    }
+
     public function scores()
     {
         return $this->hasMany(Score::class, 'userid', 'userid');
     }
-
 }

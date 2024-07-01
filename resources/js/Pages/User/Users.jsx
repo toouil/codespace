@@ -11,7 +11,6 @@ export default function Users({ auth, users, userquery = null }) {
                 {
                     userquery ? <title>{userquery} users search results | CodeSpace</title> : <title>Users | CodeSpace</title>
                 }
-                
             </Helmet>
             
             <div className="users_page">

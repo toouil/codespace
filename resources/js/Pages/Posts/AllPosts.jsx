@@ -1,4 +1,3 @@
-import { Head } from "@inertiajs/react";
 import PostsLayout from "@/Layouts/PostsLayout";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Helmet } from "react-helmet";

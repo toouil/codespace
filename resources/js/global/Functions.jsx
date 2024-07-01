@@ -37,6 +37,11 @@ export const intToString = (num) => {
 };
 
 export const show_errors = (object) => {
+    if (typeof object == "string") {
+        notify_error(object);
+        return
+    }
+    
     for (const key in object) {
         if (Object.prototype.hasOwnProperty.call(object, key)) {
             const value = object[key];

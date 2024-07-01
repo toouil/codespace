@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Like extends Model
+class Notification extends Model
 {
     use HasFactory;
 
+    
     public $fillable = [
-        "reaction_id",
-        "postid",
-        "liked_by"
+        "like_reaction_id",
+        "comment_reaction_id",
+        "reacted_by",
+        "reacted_to",
+        "type",
+        "read"
     ];
 }

@@ -140,6 +140,24 @@ export const Moon = () => {
     );
 };
 
+export const Save = () => {
+    return (
+        <svg
+            width={25}
+            height={25}
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+        </svg>
+    );
+};
+
 export const Settings = () => {
     return (
         <svg viewBox="0 0 24 24" fill="none">
@@ -425,6 +443,21 @@ export const World = ({ ...props }) => {
             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
             <path d="M2 12h20"></path>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+    );
+};
+
+export const Dots = ({ ...props }) => {
+    return (
+        <svg
+            {...props}
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="M14.625 12A2.625 2.625 0 1 1 12 9.375 2.634 2.634 0 0 1 14.625 12ZM12 7.125A2.625 2.625 0 1 0 9.375 4.5 2.634 2.634 0 0 0 12 7.125Zm0 9.75a2.625 2.625 0 1 0 2.625 2.625A2.634 2.634 0 0 0 12 16.875Z"></path>
         </svg>
     );
 };

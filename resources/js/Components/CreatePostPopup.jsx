@@ -6,6 +6,8 @@ import { Link } from "@inertiajs/react";
 export default function CreatePostPopup({ user }) {
     const [createPost, setCreatePost] = useState(false);
 
+    
+
     return (
         <>
             <div className="create_new_post container">
@@ -30,7 +32,7 @@ export default function CreatePostPopup({ user }) {
             </div>
 
             {createPost && (
-                <CreatePostBox setCreatePost={setCreatePost} user={user} />
+                <CreatePostBox setCreatePost={setCreatePost} />
             )}
         </>
     );

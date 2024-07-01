@@ -79,11 +79,11 @@ class ScoreController extends Controller
 
             $isPassed = ($getCorrectAnswersSumScore / $getAnswersSumScore) * 100 > 80;
 
-            $score = Score::where('userid', $user->userid)->where("category", $category)->join('categories', 'categories.name', '=', 'scores.category')->first();
+            $score = $user->where("category", $category)->join('categories', 'categories.name', '=', 'scores.category')->first();
 
             if ($score) {
                 if ($getCorrectAnswersSumScore > $score->score) {
-                    Score::where('userid', $user->userid)->where("category", $category)->update([
+                    $user->where("category", $category)->update([
                         "score" => $getCorrectAnswersSumScore,
                         "passed" => $score->passed || $isPassed
                     ]);
@@ -102,7 +102,7 @@ class ScoreController extends Controller
                 }
             }
 
-            $userScore = Score::create([
+            $userScore = $user->create([
                 "userid" => $user->userid,
                 "category" => $category,
                 "score" => $getCorrectAnswersSumScore,

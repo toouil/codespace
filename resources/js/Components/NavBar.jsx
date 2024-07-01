@@ -5,34 +5,22 @@ import ProfileOptions from "./ProfileOptions";
 import SideBar from "./SideBar";
 import "@/styles/navbar.css";
 import { useThemeContext } from "@/providers/ThemeProvider";
-import { useEffect } from 'react';
-import Echo from 'laravel-echo';
+import { useEffect } from "react";
+import Notifications from "./Notifications";
 
 export default function NavBar({ user }) {
+    const [notificationsCount, setNotificationsCount] = useState(0);
     const [openProfileOption, setOpenProfileOption] = useState(false);
     const [openSidebar, setOpenSidebar] = useState(false);
-    const [notificaions, setNotificaions] = useState(10);
+    const [openNotifications, setOpenNotifications] = useState(false);
 
-    const { toggleTheme } = useThemeContext()
+    const { toggleTheme } = useThemeContext();
 
-    const setOpenSidebarToFalse = () => {
+    const setOpenToFalse = (setState) => {
         setTimeout(() => {
-            setOpenSidebar(false);
+            setState(false);
         }, 10);
     };
-
-
-    useEffect(() => {
-        window.Echo.private(`App.Models.User.${user.id}`)
-            .notification((notification) => {
-                console.log(notification.message);
-                // Display notification to the user
-            });
-
-        return () => {
-            window.Echo.leave(`App.Models.User.${user.id}`);
-        };
-    }, []);
 
     return (
         <>
@@ -71,10 +59,15 @@ export default function NavBar({ user }) {
                             className="mail_btn btn content_center"
                             type="button"
                             data-title="Notifications"
+                            onClick={() => setOpenNotifications(true)}
                         >
-                            <span className="mail_count content_center">
-                                {notificaions > 9 ? "9+" : notificaions}
-                            </span>
+                            {notificationsCount > 0 && (
+                                <span className="mail_count content_center">
+                                    {notificationsCount > 9
+                                        ? "9+"
+                                        : notificationsCount}
+                                </span>
+                            )}
 
                             <span className="mail_icon">
                                 <Mail />
@@ -97,16 +90,24 @@ export default function NavBar({ user }) {
 
             {openProfileOption && (
                 <ProfileOptions
-                    setOpenProfileOption={setOpenProfileOption}
+                    setOpenProfileOptionToFalse={() => setOpenToFalse(setOpenProfileOption)}
                     user={user}
                 />
             )}
             {openSidebar && (
                 <SideBar
                     smallScreen={true}
-                    setOpenSidebarToFalse={setOpenSidebarToFalse}
+                    setOpenSidebarToFalse={() => setOpenToFalse(setOpenSidebar)}
                 />
             )}
+                <Notifications
+                    notificationsCountState={[
+                        notificationsCount,
+                        setNotificationsCount,
+                    ]}
+                    openNotifications={openNotifications}
+                    setOpenNotificationToFalse={() => setOpenToFalse(setOpenNotifications)}
+                />
         </>
     );
 }

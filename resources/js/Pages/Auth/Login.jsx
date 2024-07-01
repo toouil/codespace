@@ -5,6 +5,7 @@ import Loader from "@/Components/Loader";
 import Input from "@/Components/Input";
 import { show_errors } from "@/global/Functions";
 import { notify_error } from "@/Components/Notify";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
     const { flash } = usePage().props;

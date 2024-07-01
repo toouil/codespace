@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('saved_posts', function (Blueprint $table) {
             $table->id();
+            $table->uuid("saved_by");
             $table->string("postid");
-            $table->string("reaction_id")->unique();
-            $table->uuid("liked_by");
-            $table->timestamps();
 
-            // Define foreign keys
+            $table->foreign('saved_by')->references('userid')->on('users')->onDelete('cascade');
             $table->foreign('postid')->references('postid')->on('posts')->onDelete('cascade');
-            $table->foreign('liked_by')->references('userid')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('saved_posts');
     }
 };

@@ -12,7 +12,7 @@ export default function Dropdown({
     ...props
 }) {
     const [openMenu, setOpenMenu] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(defaultOption);
+    const [selectedOption, setSelectedOption] = useState(options.find((option) => option.value == defaultOption));
 
     const handleSelect = (option) => {
         setSelectedOption(option);
