@@ -5,7 +5,7 @@
 $ git clone https://github.com/toouil/codespace.git codespace
 
 # Go into the codespace
-$ cd ghostman
+$ cd codespace
 
 # Clone .env.example file to .env
 $ copy .env.example .env
@@ -37,4 +37,4 @@ $ php artisan serve
 ```
 Open your browser and visit http://localhost:8000 to use the application.
 
-🚨 Note : Not complete yet !
+🚨 Note : Not completed yet !
